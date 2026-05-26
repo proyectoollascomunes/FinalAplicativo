@@ -177,7 +177,8 @@ export default function AdminLogin() {
     e.preventDefault();
     if (bloqueado) return;
 
-    if (!captchaToken) {
+    /* Solo verificar captcha si ya hubo al menos un intento fallido */
+    if (intentos > 0 && !captchaToken) {
       setError("Por favor completa el captcha de seguridad.");
       return;
     }
@@ -287,20 +288,22 @@ export default function AdminLogin() {
 
             {error && !bloqueado && <p className="login-error">{error}</p>}
 
-            {/* hCaptcha */}
-            <div className="captcha-container">
-              <HCaptcha
-                onVerify={token => setCaptcha(token)}
-                onExpire={() => setCaptcha("")}
-                resetKey={captchaReset}
-              />
-              {!captchaToken && intentos > 0 && (
-                <p className="captcha-hint">Completa el captcha para continuar</p>
-              )}
-            </div>
+            {/* hCaptcha — solo aparece después del primer intento fallido */}
+            {intentos > 0 && (
+              <div className="captcha-container">
+                <HCaptcha
+                  onVerify={token => setCaptcha(token)}
+                  onExpire={() => setCaptcha("")}
+                  resetKey={captchaReset}
+                />
+                {!captchaToken && (
+                  <p className="captcha-hint">Completa el captcha para continuar</p>
+                )}
+              </div>
+            )}
 
             <button type="submit" className="btn-login"
-              disabled={inputDeshabilitado || !captchaToken}>
+              disabled={inputDeshabilitado || (intentos > 0 && !captchaToken)}>
               {loading ? "Verificando…" : bloqueado ? `Bloqueado (${cuenta}s)` : "Ingresar al panel"}
             </button>
 
