@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 import "../../styles/Admin.css";
@@ -10,7 +10,7 @@ const HCAPTCHA_SITE = "10000000-ffff-ffff-ffff-000000000001"; // key de prueba h
 /* ══════════════════════════════════
    COMPONENTE hCaptcha
 ══════════════════════════════════ */
-function HCaptcha({ onVerify, onExpire, resetKey }) {
+const HCaptcha = memo(function HCaptcha({ onVerify, onExpire, resetKey }) {
   const containerRef = useRef(null);
   const widgetId     = useRef(null);
 
@@ -31,6 +31,8 @@ function HCaptcha({ onVerify, onExpire, resetKey }) {
 
   useEffect(() => {
     if (window.hcaptcha) { render(); return; }
+    const existing = document.querySelector('script[src*="hcaptcha"]');
+    if (existing) { setTimeout(render, 500); return; }
     const script  = document.createElement("script");
     script.src    = "https://js.hcaptcha.com/1/api.js?render=explicit";
     script.async  = true;
@@ -46,7 +48,7 @@ function HCaptcha({ onVerify, onExpire, resetKey }) {
   }, [resetKey]);
 
   return <div ref={containerRef} className="hcaptcha-wrap" />;
-}
+});
 
 /* ══════════════════════════════════
    MODAL RECUPERACIÓN DE CONTRASEÑA
