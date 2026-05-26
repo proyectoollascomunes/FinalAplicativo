@@ -37,10 +37,10 @@ const TABS = [
 ];
 
 const REDES = [
-  { key: "facebook",  src: "/icons/icon-facebook.png",  alt: "Facebook"  },
-  { key: "instagram", src: "/icons/icon-instagram.png", alt: "Instagram" },
-  { key: "tiktok",    src: "/icons/icon-tiktok.png",    alt: "TikTok"    },
-  { key: "twitter",   src: "/icons/icon-twitter.png",   alt: "Twitter/X" },
+  { key: "facebook",  public: "/icons/icon-facebook.png",  alt: "Facebook"  },
+  { key: "instagram", public: "/icons/icon-instagram.png", alt: "Instagram" },
+  { key: "tiktok",    public: "/icons/icon-tiktok.png",    alt: "TikTok"    },
+  { key: "twitter",   public: "/icons/icon-twitter.png",   alt: "Twitter/X" },
 ];
 
 function RedesSociales({ olla, size = "sm" }) {
