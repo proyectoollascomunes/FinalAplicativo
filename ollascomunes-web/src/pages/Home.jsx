@@ -37,10 +37,10 @@ const TABS = [
 ];
 
 const REDES = [
-  { key: "facebook",  src: "/src/assets/images/icon-facebook.png",  alt: "Facebook"  },
-  { key: "instagram", src: "/src/assets/images/icon-instagram.png", alt: "Instagram" },
-  { key: "tiktok",    src: "/src/assets/images/icon-tiktok.png",    alt: "TikTok"    },
-  { key: "twitter",   src: "/src/assets/images/icon-twitter.png",   alt: "Twitter/X" },
+  { key: "facebook",  src: "/icons/icon-facebook.png",  alt: "Facebook"  },
+  { key: "instagram", src: "/icons/icon-instagram.png", alt: "Instagram" },
+  { key: "tiktok",    src: "/icons/icon-tiktok.png",    alt: "TikTok"    },
+  { key: "twitter",   src: "/icons/icon-twitter.png",   alt: "Twitter/X" },
 ];
 
 function RedesSociales({ olla, size = "sm" }) {
@@ -445,7 +445,6 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
   );
 }
 
-/*══════════════════════════════════ 
    TAB: OLLAS COMUNES — con mapa Leaflet
 ══════════════════════════════════ */
 function TabOllas({ cambiarTab }) {
