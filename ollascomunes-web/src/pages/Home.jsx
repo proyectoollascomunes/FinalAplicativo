@@ -444,7 +444,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
     </div>
   );
 }
-
+/*══════════════════════════════════
    TAB: OLLAS COMUNES — con mapa Leaflet
 ══════════════════════════════════ */
 function TabOllas({ cambiarTab }) {
