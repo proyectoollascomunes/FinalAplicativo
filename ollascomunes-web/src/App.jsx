@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home          from "./pages/Home";
-import AdminLogin    from "./pages/admin/AdminLogin";
+import Home           from "./pages/Home";
+import AdminLogin     from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import ResetPassword  from "./pages/admin/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { useApp }    from "./context/AppContext";
+import { useApp }     from "./context/AppContext";
 
 function AppContent() {
   const { cargando } = useApp();
@@ -40,6 +41,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/reset-password" element={<ResetPassword />} />
         <Route path="/admin/dashboard" element={
           <ProtectedRoute>
             <AdminDashboard />
