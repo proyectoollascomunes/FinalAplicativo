@@ -5,7 +5,7 @@ import "../../styles/Admin.css";
 
 const MAX_INTENTOS  = 3;
 const BLOQUEO_SEG   = 30;
-const HCAPTCHA_SITE = "21d84ff0-f7b4-4c68-87d8-c3c2713205a2"; // key de prueba hCaptcha
+const HCAPTCHA_SITE = "21d84ff0-f7b4-4c68-87d8-c3c2713205a2";
 
 /* ══════════════════════════════════
    COMPONENTE hCaptcha
@@ -143,6 +143,10 @@ export default function AdminLogin() {
   /* hCaptcha */
   const [captchaToken, setCaptcha]  = useState("");
   const [captchaReset, setCapReset] = useState(0);
+
+  /* Callbacks estables — useCallback evita re-render del captcha al escribir */
+  const handleCaptchaVerify = useCallback((token) => setCaptcha(token), []);
+  const handleCaptchaExpire = useCallback(() => setCaptcha(""), []);
 
   /* Modal recuperación */
   const [modalRecup, setModalR] = useState(false);
@@ -294,8 +298,8 @@ export default function AdminLogin() {
             {intentos > 0 && (
               <div className="captcha-container">
                 <HCaptcha
-                  onVerify={token => setCaptcha(token)}
-                  onExpire={() => setCaptcha("")}
+                  onVerify={handleCaptchaVerify}
+                  onExpire={handleCaptchaExpire}
                   resetKey={captchaReset}
                 />
                 {!captchaToken && (
