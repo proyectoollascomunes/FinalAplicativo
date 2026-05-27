@@ -5,7 +5,7 @@ import "../../styles/Admin.css";
 
 const MAX_INTENTOS  = 3;
 const BLOQUEO_SEG   = 30;
-const HCAPTCHA_SITE = "10000000-ffff-ffff-ffff-000000000001"; // key de prueba hCaptcha
+const HCAPTCHA_SITE = "21d84ff0-f7b4-4c68-87d8-c3c2713205a2"; // key de prueba hCaptcha
 
 /* ══════════════════════════════════
    COMPONENTE hCaptcha
