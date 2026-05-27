@@ -295,9 +295,13 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={() => { setCargandoMP(false); setPrefId(null); onClose(); }}>
       <div className="modal-card modal-don" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>✕</button>
+        <button className="modal-close" onClick={() => {
+          setCargandoMP(false);
+          setPrefId(null);
+          onClose();
+        }}>✕</button>
 
         {paso === 1 && (
           <>
