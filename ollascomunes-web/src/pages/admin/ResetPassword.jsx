@@ -18,6 +18,21 @@ export default function ResetPassword() {
 
   /* Verificar que el link del correo sea válido */
   useEffect(() => {
+    /* Leer errores del hash de la URL (ej: #error=access_denied) */
+    const hash   = window.location.hash;
+    const params = new URLSearchParams(hash.replace("#", ""));
+    const urlError = params.get("error");
+    const urlErrorDesc = params.get("error_description");
+
+    if (urlError) {
+      const msg = urlError === "access_denied" || params.get("error_code") === "otp_expired"
+        ? "El enlace de recuperación expiró. Por favor solicita uno nuevo desde el login."
+        : urlErrorDesc?.replace(/\+/g, " ") || "El enlace es inválido. Solicita uno nuevo.";
+      setError(msg);
+      setVerificando(false);
+      return;
+    }
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         setSesionOk(true);
@@ -29,7 +44,7 @@ export default function ResetPassword() {
 
     /* Escuchar el evento de recuperación de contraseña */
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
-      if (event === "PASSWORD_RECOVERY") setSesionOk(true);
+      if (event === "PASSWORD_RECOVERY") { setSesionOk(true); setError(""); }
     });
 
     return () => subscription.unsubscribe();
@@ -99,8 +114,9 @@ export default function ResetPassword() {
               Ir al login ahora
             </button>
           </div>
-        ) : !sesionOk ? (
+        ) : error && !sesionOk ? (
           <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>⚠️</div>
             <p className="login-error" style={{ marginBottom: "1rem" }}>{error}</p>
             <button className="btn-login" onClick={() => navigate("/admin")}>
               Volver al login
