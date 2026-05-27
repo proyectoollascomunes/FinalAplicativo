@@ -18,21 +18,39 @@ export default function ResetPassword() {
 
   /* Verificar que el link del correo sea válido */
   useEffect(() => {
-    /* Leer errores del hash de la URL (ej: #error=access_denied) */
     const hash   = window.location.hash;
     const params = new URLSearchParams(hash.replace("#", ""));
-    const urlError = params.get("error");
-    const urlErrorDesc = params.get("error_description");
 
-    if (urlError) {
-      const msg = urlError === "access_denied" || params.get("error_code") === "otp_expired"
-        ? "El enlace de recuperación expiró. Por favor solicita uno nuevo desde el login."
-        : urlErrorDesc?.replace(/\+/g, " ") || "El enlace es inválido. Solicita uno nuevo.";
-      setError(msg);
+    const urlError     = params.get("error");
+    const errorCode    = params.get("error_code");
+    const accessToken  = params.get("access_token");
+    const refreshToken = params.get("refresh_token");
+    const type         = params.get("type");
+
+    /* Link con error explícito */
+    if (urlError || errorCode === "otp_expired") {
+      setError("El enlace de recuperación expiró. Por favor solicita uno nuevo desde el login.");
       setVerificando(false);
       return;
     }
 
+    /* Link válido con tokens — establecer sesión manualmente */
+    if (accessToken && type === "recovery") {
+      supabase.auth.setSession({
+        access_token:  accessToken,
+        refresh_token: refreshToken || "",
+      }).then(({ data, error: err }) => {
+        if (err || !data.session) {
+          setError("El enlace de recuperación expiró. Por favor solicita uno nuevo.");
+        } else {
+          setSesionOk(true);
+        }
+        setVerificando(false);
+      });
+      return;
+    }
+
+    /* Sin tokens en URL — verificar sesión existente */
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
         setSesionOk(true);
@@ -42,7 +60,6 @@ export default function ResetPassword() {
       setVerificando(false);
     });
 
-    /* Escuchar el evento de recuperación de contraseña */
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
       if (event === "PASSWORD_RECOVERY") { setSesionOk(true); setError(""); }
     });
