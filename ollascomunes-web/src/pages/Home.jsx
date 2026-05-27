@@ -291,7 +291,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
   const siguientePaso = () => {
     if (!validar()) return;
     if (esEco) { setPaso(2); crearPreferencia(); }
-    else       { registrar("en espera"); setPaso(3); }
+    else       { registrar("en espera"); setPrefId(null); setPaso(3); }
   };
 
   return (
@@ -395,7 +395,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
                   <Wallet
                     initialization={{ preferenceId, redirectMode: "modal" }}
                     customization={{ texts: { valueProp: "smart_option" } }}
-                    onSubmit={() => setPaso(3)}
+                    onSubmit={() => { setPrefId(null); setPaso(3); }}
                     onError={(err) => console.error("MP error:", err)}
                   />
                 ) : (
@@ -414,7 +414,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
                     <img src={hero.yapeQR} alt="QR Yape" className="don-qr-real" />
                     <p className="don-qr-nota">Escanea desde tu app de Yape y luego cierra esta ventana.</p>
                     <button className="btn-primary" style={{ marginTop: "0.8rem", width: "100%" }}
-                      onClick={() => setPaso(3)}>
+                      onClick={() => { setPrefId(null); setPaso(3); }}>
                       Ya pagué con Yape →
                     </button>
                   </div>
@@ -422,7 +422,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
               )}
             </div>
 
-            <button className="btn-sm-outline don-btn-back" onClick={() => { setPaso(1); setPrefId(null); }}>
+            <button className="btn-sm-outline don-btn-back" onClick={() => { setPaso(1); setPrefId(null); setCargandoMP(false); }}>
               ← Volver al formulario
             </button>
           </div>
