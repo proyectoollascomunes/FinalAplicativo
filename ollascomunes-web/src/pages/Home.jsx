@@ -222,6 +222,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
   const [errors,       setErrors]     = useState({});
   const [preferenceId, setPrefId]     = useState(null);
   const [cargandoMP,   setCargandoMP] = useState(false);
+  const [mostrarWallet, setMostrarW]  = useState(true);
 
   const esEco = tipo === "económica";
   const opcionesOlla = ["Ninguna (apoyo general)", ...ollas.map(o => o.nombre)];
@@ -290,16 +291,17 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
 
   const siguientePaso = () => {
     if (!validar()) return;
-    if (esEco) { setPaso(2); crearPreferencia(); }
-    else       { registrar("en espera"); setPrefId(null); setPaso(3); }
+    if (esEco) { setMostrarW(true); setPaso(2); crearPreferencia(); }
+    else       { registrar("en espera"); setPaso(3); }
   };
 
   return (
-    <div className="modal-overlay" onClick={() => { setCargandoMP(false); setPrefId(null); onClose(); }}>
+    <div className="modal-overlay" onClick={() => { setCargandoMP(false); setPrefId(null); setMostrarW(false); onClose(); }}>
       <div className="modal-card modal-don" onClick={e => e.stopPropagation()}>
         <button className="modal-close" onClick={() => {
           setCargandoMP(false);
           setPrefId(null);
+          setMostrarW(false);
           onClose();
         }}>✕</button>
 
@@ -391,12 +393,13 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
               {/* MercadoPago — tarjeta + Yape + Plin */}
               <div className="don-mp-wrap">
                 <p className="don-mp-label">💳 Tarjeta, Yape o Plin — procesado por MercadoPago</p>
-                {preferenceId ? (
+                {preferenceId && mostrarWallet ? (
                   <Wallet
                     initialization={{ preferenceId, redirectMode: "modal" }}
                     customization={{ texts: { valueProp: "smart_option" } }}
-                    onSubmit={() => { setPrefId(null); setPaso(3); }}
+                    onSubmit={() => setPaso(3)}
                     onError={(err) => console.error("MP error:", err)}
+                    onReady={() => {}}
                   />
                 ) : (
                   <div className="don-mp-loading">
@@ -422,7 +425,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
               )}
             </div>
 
-            <button className="btn-sm-outline don-btn-back" onClick={() => { setPaso(1); setPrefId(null); setCargandoMP(false); }}>
+            <button className="btn-sm-outline don-btn-back" onClick={() => { setPaso(1); setPrefId(null); setCargandoMP(false); setMostrarW(false); }}>
               ← Volver al formulario
             </button>
           </div>
