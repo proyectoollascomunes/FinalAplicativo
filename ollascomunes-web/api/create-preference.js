@@ -41,14 +41,14 @@ export default async function handler(req) {
           email: correo || "donante@ollascomunes.pe",
         },
         back_urls: {
-          success: `${process.env.NEXT_PUBLIC_URL || "https://ollascomunes.vercel.app"}/`,
-          failure: `${process.env.NEXT_PUBLIC_URL || "https://ollascomunes.vercel.app"}/`,
-          pending: `${process.env.NEXT_PUBLIC_URL || "https://ollascomunes.vercel.app"}/`,
+          success: `${process.env.NEXT_PUBLIC_URL || "https://ollascomunes-web.vercel.app"}/`,
+          failure: `${process.env.NEXT_PUBLIC_URL || "https://ollascomunes-web.vercel.app"}/`,
+          pending: `${process.env.NEXT_PUBLIC_URL || "https://ollascomunes-web.vercel.app"}/`,
         },
         auto_return:          "approved",
         statement_descriptor: "Ollas Comunes Peru",
         external_reference:   `donacion-${Date.now()}`,
-        notification_url:     `${process.env.NEXT_PUBLIC_URL || "https://ollascomunes.vercel.app"}/api/mp-webhook`,
+        notification_url:     `${process.env.NEXT_PUBLIC_URL || "https://ollascomunes-web.vercel.app"}/api/mp-webhook`,
       }),
     });
 
