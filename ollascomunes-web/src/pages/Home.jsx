@@ -398,7 +398,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
                     initialization={{ preferenceId, redirectMode: "modal" }}
                     customization={{ texts: { valueProp: "smart_option" } }}
                     onSubmit={() => setPaso(3)}
-                    onError={(err) => console.error("MP error:", err)}
+                    onError={(err) => { console.error("MP error:", err); }}
                     onReady={() => {}}
                   />
                 ) : (
@@ -425,9 +425,19 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
               )}
             </div>
 
-            <button className="btn-sm-outline don-btn-back" onClick={() => { setPaso(1); setPrefId(null); setCargandoMP(false); setMostrarW(false); }}>
-              ← Volver al formulario
-            </button>
+            {/* Botones de acción */}
+            <div style={{ display: "flex", gap: "0.6rem", marginTop: "0.75rem", flexWrap: "wrap" }}>
+              <button className="btn-sm-outline don-btn-back"
+                style={{ flex: 1 }}
+                onClick={() => { setPaso(1); setPrefId(null); setCargandoMP(false); setMostrarW(false); }}>
+                ← Volver
+              </button>
+              <button className="btn-sm-outline don-btn-back"
+                style={{ flex: 1, color: "#6B4C38" }}
+                onClick={() => { setPrefId(null); setMostrarW(false); onClose(); }}>
+                Cancelar donación
+              </button>
+            </div>
           </div>
         )}
 
