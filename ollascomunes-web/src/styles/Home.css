@@ -1050,3 +1050,223 @@ html { scroll-behavior: smooth; }
   height: 1px;
   background: var(--crema-oscuro);
 }
+
+/* ══════════════════════════════
+   TEMA OSCURO — Home
+══════════════════════════════ */
+body.tema-oscuro {
+  --naranja:        #FF7A45;
+  --naranja-claro:  #FF9B6A;
+  --naranja-oscuro: #E8622A;
+  --crema:          #1E1E2E;
+  --crema-oscuro:   #2A2A3E;
+  --texto:          #E8E8F0;
+  --texto-suave:    #A0A0C0;
+  --blanco:         #252535;
+  --verde:          #4CAF50;
+  --navbar-h:       62px;
+  --sombra:         0 4px 24px rgba(0,0,0,0.4);
+  --sombra-fuerte:  0 8px 40px rgba(0,0,0,0.6);
+}
+ 
+/* Navbar oscuro */
+body.tema-oscuro .navbar {
+  background: rgba(30,30,46,0.97);
+  border-bottom-color: #2A2A3E;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.3);
+}
+body.tema-oscuro .navbar-brand { color: var(--naranja-claro); }
+body.tema-oscuro .navbar-hamburger span { background: var(--texto); }
+body.tema-oscuro .navbar-links {
+  background: rgba(30,30,46,0.98);
+  border-bottom-color: #2A2A3E;
+}
+body.tema-oscuro .nav-tab-btn { color: var(--texto-suave); }
+body.tema-oscuro .nav-tab-btn:hover { background: rgba(255,122,69,0.1); color: var(--naranja-claro); }
+body.tema-oscuro .nav-tab-btn.active { color: var(--naranja-claro); }
+ 
+/* Hero oscuro */
+body.tema-oscuro .hero-tab {
+  background: linear-gradient(160deg, #0D0D1A 0%, #1A0A2E 38%, #2E1A0E 68%, #3D1F0A 100%);
+}
+ 
+/* Secciones oscuras */
+body.tema-oscuro .tab-section  { background: var(--crema); }
+body.tema-oscuro .tab-cream    { background: #252535; }
+body.tema-oscuro .tab-dark     { background: #0D0D1A; }
+ 
+/* Cards de ollas */
+body.tema-oscuro .olla-card {
+  background: var(--blanco);
+  border-top-color: var(--naranja);
+  box-shadow: var(--sombra);
+}
+body.tema-oscuro .olla-card-body h3 { color: var(--texto); }
+body.tema-oscuro .olla-img-ph {
+  background: linear-gradient(135deg, #2A2A3E, #1E1E2E);
+}
+body.tema-oscuro .olla-necesidad {
+  background: rgba(255,122,69,0.12);
+  border-left-color: var(--naranja);
+  color: var(--texto-suave);
+}
+ 
+/* Modal oscuro */
+body.tema-oscuro .modal-card { background: #252535; }
+body.tema-oscuro .modal-close {
+  background: rgba(40,40,60,0.95);
+  color: var(--texto);
+}
+body.tema-oscuro .modal-close:hover { background: var(--naranja); color: #fff; }
+body.tema-oscuro .modal-info-item   { background: #2A2A3E; }
+body.tema-oscuro .modal-info-label  { color: var(--texto-suave); }
+body.tema-oscuro .modal-info-val    { color: var(--texto); }
+body.tema-oscuro .modal-descripcion { background: #2A2A3E; }
+body.tema-oscuro .modal-descripcion p { color: var(--texto-suave); }
+body.tema-oscuro .modal-titulo-row h2 { color: var(--texto); }
+body.tema-oscuro .modal-img-ph { background: linear-gradient(135deg, #2A2A3E, #1E1E2E); }
+ 
+/* Mapa */
+body.tema-oscuro .mapa-wrapper { border-color: #2A2A3E; }
+body.tema-oscuro .map-filter-top {
+  background: #252535;
+  border-bottom-color: #2A2A3E;
+}
+body.tema-oscuro .map-filter-top label { color: var(--texto-suave); }
+body.tema-oscuro .map-filter-top select {
+  background: #2A2A3E;
+  color: var(--texto);
+  border-color: var(--naranja);
+}
+body.tema-oscuro .map-placeholder {
+  background: #252535;
+  border-color: var(--naranja);
+}
+ 
+/* Donaciones */
+body.tema-oscuro .donate-card {
+  background: #252535;
+  border-top-color: #3A3A5E;
+  box-shadow: var(--sombra);
+}
+body.tema-oscuro .donate-card.featured { border-top-color: var(--naranja); }
+body.tema-oscuro .donate-card h3 { color: var(--texto); }
+body.tema-oscuro .donate-card p  { color: var(--texto-suave); }
+body.tema-oscuro .transparency-box { background: #252535; box-shadow: var(--sombra); }
+body.tema-oscuro .transparency-box h3 { color: var(--texto); }
+body.tema-oscuro .transparency-note   { color: var(--texto-suave); }
+ 
+/* Contacto */
+body.tema-oscuro .contact-form input,
+body.tema-oscuro .contact-form textarea {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .contact-form input:focus,
+body.tema-oscuro .contact-form textarea:focus { border-color: var(--naranja); }
+body.tema-oscuro .contact-info p { color: var(--texto-suave); }
+ 
+/* Noticias */
+body.tema-oscuro .noticia-card {
+  background: #252535;
+  border-top-color: var(--naranja);
+}
+body.tema-oscuro .noticia-card h3  { color: var(--texto); }
+body.tema-oscuro .noticia-desc     { color: var(--texto-suave); }
+body.tema-oscuro .noticia-fecha    { color: var(--texto-suave); }
+body.tema-oscuro .noticia-img-ph   { background: linear-gradient(135deg, #2A2A3E, #1E1E2E); }
+ 
+/* Modal donación oscuro */
+body.tema-oscuro .modal-don        { background: #252535; }
+body.tema-oscuro .don-header       { background: #252535; }
+body.tema-oscuro .don-title        { color: var(--texto); }
+body.tema-oscuro .don-sub          { color: var(--texto-suave); }
+body.tema-oscuro .don-tipo-btn {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto-suave);
+}
+body.tema-oscuro .don-tipo-btn.act { background: var(--naranja); color: #fff; border-color: var(--naranja); }
+body.tema-oscuro .don-aviso        { background: rgba(255,167,38,0.1); color: #FFD54F; }
+body.tema-oscuro .don-field label  { color: var(--texto); }
+body.tema-oscuro .don-field input,
+body.tema-oscuro .don-field select,
+body.tema-oscuro .don-field textarea {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .don-field input:focus,
+body.tema-oscuro .don-field select:focus,
+body.tema-oscuro .don-field textarea:focus { border-color: var(--naranja); background: #2E2E48; }
+body.tema-oscuro .don-mp-wrap      { background: #2A2A3E; border-color: #3A3A5E; }
+body.tema-oscuro .don-mp-label     { color: var(--texto-suave); }
+body.tema-oscuro .don-pago-btn     { background: #2A2A3E; border-color: #3A3A5E; }
+body.tema-oscuro .don-pago-nombre  { color: var(--texto); }
+body.tema-oscuro .don-pago-desc    { color: var(--texto-suave); }
+body.tema-oscuro .don-qr-box       { background: #2A2A3E; border-color: #3A3A5E; }
+body.tema-oscuro .don-qr-placeholder { background: #1E1E2E; }
+body.tema-oscuro .don-qr-nota      { color: var(--texto-suave); }
+body.tema-oscuro .don-gracias-titulo { color: var(--texto); }
+body.tema-oscuro .don-gracias-msg  { color: var(--texto-suave); }
+body.tema-oscuro .don-gracias-olla { background: rgba(255,122,69,0.12); border-left-color: var(--naranja); color: var(--texto); }
+ 
+/* Toast y badge */
+body.tema-oscuro .toast-reunion    { background: #252535; border-left-color: var(--naranja); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+body.tema-oscuro .toast-titulo     { color: var(--naranja-claro); }
+body.tema-oscuro .toast-olla       { color: var(--texto); }
+body.tema-oscuro .toast-dato       { color: var(--texto-suave); }
+body.tema-oscuro .toast-motiv      { color: var(--naranja-claro); }
+body.tema-oscuro .toast-close      { color: var(--texto-suave); }
+body.tema-oscuro .badge-noticias   { background: #252535; color: var(--texto); }
+ 
+/* Footer oscuro */
+body.tema-oscuro .footer           { background: #0D0D1A; }
+ 
+/* Switch toggle */
+.tema-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+.tema-switch-track {
+  width: 42px;
+  height: 24px;
+  background: var(--crema-oscuro);
+  border-radius: 50px;
+  position: relative;
+  transition: background 0.25s;
+  border: 1.5px solid rgba(44,24,16,0.15);
+}
+body.tema-oscuro .tema-switch-track {
+  background: #3A3A5E;
+  border-color: rgba(255,255,255,0.1);
+}
+.tema-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--naranja);
+  transition: transform 0.25s, background 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.tema-switch.activo .tema-switch-thumb {
+  transform: translateX(18px);
+  background: var(--naranja-claro);
+}
+.tema-switch-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
