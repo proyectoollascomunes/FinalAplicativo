@@ -5,6 +5,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import { useApp } from "../context/AppContext";
+import { useTema } from "../context/ThemeContext";
 import "../styles/Home.css";
 
 /* Inicializar MercadoPago con Public Key de prueba */
@@ -75,6 +76,7 @@ export default function Home() {
   const [tabActiva, setTabActiva]     = useState("inicio");
   const [menuAbierto, setMenuAbierto] = useState(false);
   const { hero, ollas, donaciones, reuniones, noticias } = useApp();
+  const { oscuro, toggleTema } = useTema();
 
   /* ── Toast de reunión próxima ── */
   const [toast, setToast]           = useState(null);
@@ -117,6 +119,17 @@ export default function Home() {
           <span className="navbar-logo">🍲</span>
           <span className="navbar-title">Ollas Comunes Perú</span>
         </div>
+        {/* Switch tema — junto a pestaña Inicio */}
+        <button
+          className={`tema-switch ${oscuro ? "activo" : ""}`}
+          onClick={toggleTema}
+          aria-label={oscuro ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+          title={oscuro ? "Modo claro" : "Modo oscuro"}
+        >
+          <div className="tema-switch-track">
+            <div className="tema-switch-thumb">{oscuro ? "🌙" : "☀️"}</div>
+          </div>
+        </button>
         <button className="navbar-hamburger" onClick={() => setMenuAbierto(!menuAbierto)} aria-label="Menú">
           <span /><span /><span />
         </button>
@@ -461,7 +474,7 @@ function ModalDonacion({ tipoInicial, ollaInicial, onClose }) {
     </div>
   );
 }
-/*══════════════════════════════════
+/* ═══════════════════════════════
    TAB: OLLAS COMUNES — con mapa Leaflet
 ══════════════════════════════════ */
 function TabOllas({ cambiarTab }) {
