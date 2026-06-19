@@ -1232,6 +1232,19 @@ body.tema-oscuro .footer           { background: #0D0D1A; }
   cursor: pointer;
   user-select: none;
   flex-shrink: 0;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.tema-switch:focus { outline: none; }
+.tema-switch:focus-visible {
+  outline: 2px solid var(--naranja);
+  outline-offset: 3px;
+  border-radius: 50px;
 }
 .tema-switch-track {
   width: 42px;
