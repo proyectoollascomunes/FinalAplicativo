@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../../context/AppContext";
+import { useTema } from "../../context/ThemeContext";
 import { supabase } from "../../lib/supabase";
 import "../../styles/Admin.css";
 import jsPDF from "jspdf";
@@ -45,6 +46,7 @@ export default function AdminDashboard() {
   const [sbOpen, setSb]        = useState(true);
   const [mobileMenu, setMobile]= useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
+  const { oscuro, toggleTema } = useTema();
 
   const goTab = (id) => { setTab(id); setMobile(false); };
 
@@ -119,6 +121,18 @@ export default function AdminDashboard() {
             <span className="topbar-icon">{SIDEBAR.find(i => i.id === tab)?.icon}</span>
             {SIDEBAR.find(i => i.id === tab)?.label}
           </h2>
+          {/* Switch tema — al costado izquierdo de Administrador AD */}
+          <button
+            className={`topbar-tema-switch ${oscuro ? "activo" : ""}`}
+            onClick={toggleTema}
+            aria-label={oscuro ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+            title={oscuro ? "Modo claro" : "Modo oscuro"}
+          >
+            <div className="topbar-tema-track">
+              <div className="topbar-tema-thumb">{oscuro ? "🌙" : "☀️"}</div>
+            </div>
+          </button>
+
           <div className="topbar-user">
             <span className="topbar-username">Administrador</span>
             <div className="topbar-avatar">AD</div>
