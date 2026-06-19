@@ -573,7 +573,7 @@ html { scroll-behavior: smooth; }
 
 .btn-secondary {
   background: transparent;
-  color: var(--blanco);
+  color: #FFFFFF;
   border: 2px solid rgba(255,255,255,0.55);
   font-family: 'DM Sans', sans-serif;
   font-size: 0.95rem;
@@ -583,7 +583,7 @@ html { scroll-behavior: smooth; }
   cursor: pointer;
   transition: all 0.18s;
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.13); border-color: var(--blanco); }
+.btn-secondary:hover { background: rgba(255,255,255,0.13); border-color: #FFFFFF; }
 
 /* ══════════════════════════════
    FOOTER
@@ -1283,3 +1283,4 @@ body.tema-oscuro .tema-switch-track {
   font-weight: 600;
   color: var(--texto-suave);
 }
+
