@@ -889,3 +889,233 @@
   border-radius: 2px;
   transition: background 0.2s;
 }
+
+/* ══════════════════════════════
+   TEMA OSCURO — Dashboard
+══════════════════════════════ */
+body.tema-oscuro {
+  --naranja:        #FF7A45;
+  --naranja-claro:  #FF9B6A;
+  --naranja-oscuro: #E8622A;
+  --crema:          #1E1E2E;
+  --crema-oscuro:   #2A2A3E;
+  --texto:          #E8E8F0;
+  --texto-suave:    #A0A0C0;
+  --blanco:         #252535;
+  --verde:          #4CAF50;
+  --rojo:           #EF5350;
+  --sb-bg:          #0D0D1A;
+}
+ 
+/* Sidebar */
+body.tema-oscuro .db-sidebar   { background: #0D0D1A; }
+body.tema-oscuro .sb-name      { color: var(--naranja-claro); }
+body.tema-oscuro .sb-sub       { color: rgba(255,255,255,0.3); }
+body.tema-oscuro .sb-item      { color: rgba(255,255,255,0.45); }
+body.tema-oscuro .sb-item:hover { background: rgba(255,122,69,0.12); color: var(--texto); }
+body.tema-oscuro .sb-active    { background: rgba(255,122,69,0.22) !important; color: var(--naranja-claro) !important; }
+ 
+/* Topbar */
+body.tema-oscuro .db-topbar {
+  background: #1E1E2E;
+  border-bottom-color: #2A2A3E;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+body.tema-oscuro .topbar-title  { color: var(--texto); }
+body.tema-oscuro .topbar-toggle { color: var(--texto-suave); }
+body.tema-oscuro .topbar-toggle:hover { background: #2A2A3E; }
+body.tema-oscuro .topbar-user   { background: #2A2A3E; }
+body.tema-oscuro .topbar-username { color: var(--texto-suave); }
+body.tema-oscuro .topbar-avatar { background: #3A3A5E; border-color: rgba(255,255,255,0.1); color: var(--texto-suave); }
+ 
+/* Fondo contenido */
+body.tema-oscuro .db-root   { background: #16162A; }
+body.tema-oscuro .db-content { background: #16162A; }
+ 
+/* Métricas */
+body.tema-oscuro .metric-card {
+  background: #252535;
+  border-color: #2A2A3E;
+}
+body.tema-oscuro .metric-label { color: var(--texto-suave); }
+body.tema-oscuro .metric-val   { color: var(--texto); }
+body.tema-oscuro .metric-sub   { color: var(--texto-suave); }
+ 
+/* Cards */
+body.tema-oscuro .card {
+  background: #252535;
+  border-color: #2A2A3E;
+}
+body.tema-oscuro .card-title  { color: var(--texto-suave); }
+ 
+/* Filas de lista */
+body.tema-oscuro .list-row    { border-bottom-color: #2A2A3E; }
+body.tema-oscuro .list-main   { color: var(--texto); }
+body.tema-oscuro .list-sub    { color: var(--texto-suave); }
+body.tema-oscuro .act-row     { border-bottom-color: #2A2A3E; color: var(--texto-suave); }
+body.tema-oscuro .empty-msg   { color: var(--texto-suave); }
+ 
+/* Actividad */
+body.tema-oscuro .quick-btn {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .quick-btn:hover { background: var(--naranja); color: #fff; border-color: var(--naranja); }
+ 
+/* Botones */
+body.tema-oscuro .btn-sm-outline {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .btn-sm-outline:hover { background: #3A3A5E; }
+body.tema-oscuro .btn-mini {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .btn-mini:hover { background: var(--naranja); color: #fff; border-color: var(--naranja); }
+body.tema-oscuro .btn-mini-del   { border-color: rgba(239,83,80,0.4); color: #EF9A9A; }
+body.tema-oscuro .btn-mini-del:hover { background: #C62828; color: #fff; border-color: #C62828; }
+ 
+/* Formularios */
+body.tema-oscuro .form-input,
+body.tema-oscuro .form-textarea,
+body.tema-oscuro .form-field select {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .form-input:focus,
+body.tema-oscuro .form-textarea:focus,
+body.tema-oscuro .form-field select:focus { border-color: var(--naranja); }
+body.tema-oscuro .form-label  { color: var(--texto-suave); }
+body.tema-oscuro .form-section-label { color: var(--texto-suave); border-top-color: #3A3A5E; }
+ 
+/* Upload zone */
+body.tema-oscuro .upload-zone { border-color: #3A3A5E; color: var(--texto-suave); }
+body.tema-oscuro .upload-zone:hover { border-color: var(--naranja); color: var(--naranja); }
+body.tema-oscuro .upload-zone-active { border-color: #3A3A5E; }
+body.tema-oscuro .img-preview-wrap { border-color: #3A3A5E; }
+body.tema-oscuro .img-preview-actions { background: #2A2A3E; }
+body.tema-oscuro .upload-text { color: var(--texto); }
+body.tema-oscuro .upload-hint { color: var(--texto-suave); }
+ 
+/* Gráfico de barras */
+body.tema-oscuro .bar-fill   { background: #3A3A5E; border-color: #2A2A3E; }
+body.tema-oscuro .bar-active { background: var(--naranja); border-color: var(--naranja-oscuro); }
+body.tema-oscuro .bar-label  { color: var(--texto-suave); }
+body.tema-oscuro .bar-count  { color: var(--texto-suave); }
+ 
+/* Donaciones admin */
+body.tema-oscuro .select-estado {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .don-detalle-panel   { background: #2A2A3E; }
+body.tema-oscuro .don-detalle-label   { color: var(--texto-suave); }
+body.tema-oscuro .don-detalle-val     { color: var(--texto); }
+body.tema-oscuro .don-admin-row       { border-bottom-color: #2A2A3E; }
+ 
+/* Mensajes */
+body.tema-oscuro .msg-no-leido { background: rgba(255,122,69,0.06); }
+ 
+/* Autocompletado reuniones */
+body.tema-oscuro .dir-sugerencias {
+  background: #252535;
+  border-color: var(--naranja);
+}
+body.tema-oscuro .dir-sug-item {
+  color: var(--texto);
+  border-bottom-color: #2A2A3E;
+}
+body.tema-oscuro .dir-sug-item:hover { background: #2A2A3E; }
+ 
+/* Modal confirmación */
+body.tema-oscuro .modal-backdrop { background: rgba(0,0,0,0.75); }
+body.tema-oscuro .confirm-modal  { background: #252535; box-shadow: 0 24px 60px rgba(0,0,0,0.6); }
+body.tema-oscuro .confirm-title  { color: var(--texto); }
+body.tema-oscuro .confirm-msg    { color: var(--texto-suave); }
+body.tema-oscuro .btn-cancel-confirm {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .btn-cancel-confirm:hover { background: #3A3A5E; }
+ 
+/* Login oscuro */
+body.tema-oscuro .login-root { background: #16162A; }
+body.tema-oscuro .login-card {
+  background: #252535;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px rgba(0,0,0,0.4);
+}
+body.tema-oscuro .login-brand h1 { color: var(--texto); }
+body.tema-oscuro .login-brand p  { color: var(--texto-suave); }
+body.tema-oscuro .fg label       { color: var(--texto); }
+body.tema-oscuro .fg input {
+  background: #2A2A3E;
+  border-color: #3A3A5E;
+  color: var(--texto);
+}
+body.tema-oscuro .fg input:focus { background: #2E2E48; border-color: var(--naranja); }
+body.tema-oscuro .pass-toggle    { color: var(--texto-suave); }
+body.tema-oscuro .btn-forgot     { color: var(--texto-suave); }
+body.tema-oscuro .btn-back       { color: var(--texto-suave); }
+body.tema-oscuro .btn-back:hover { background: #2A2A3E; }
+ 
+/* Recover modal oscuro */
+body.tema-oscuro .recover-modal  { background: #252535; }
+body.tema-oscuro .recover-title  { color: var(--texto); }
+body.tema-oscuro .recover-desc   { color: var(--texto-suave); }
+body.tema-oscuro .recover-nota   { color: var(--texto-suave); }
+body.tema-oscuro .recover-close  { color: var(--texto-suave); }
+body.tema-oscuro .recover-close:hover { background: #2A2A3E; }
+ 
+/* Switch en topbar */
+.topbar-tema-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50px;
+  transition: background 0.18s;
+}
+.topbar-tema-switch:hover { background: var(--crema-oscuro); }
+body.tema-oscuro .topbar-tema-switch:hover { background: #2A2A3E; }
+ 
+.topbar-tema-track {
+  width: 38px;
+  height: 22px;
+  background: var(--crema-oscuro);
+  border-radius: 50px;
+  position: relative;
+  transition: background 0.25s;
+  border: 1.5px solid rgba(44,24,16,0.15);
+  flex-shrink: 0;
+}
+body.tema-oscuro .topbar-tema-track {
+  background: #3A3A5E;
+  border-color: rgba(255,255,255,0.1);
+}
+.topbar-tema-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--naranja);
+  transition: transform 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+.topbar-tema-switch.activo .topbar-tema-thumb {
+  transform: translateX(16px);
+}
+ 
